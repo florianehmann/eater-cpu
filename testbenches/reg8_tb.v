@@ -43,7 +43,7 @@ module reg8_tb2;
         load = 0;
         clear = 1;
         #1 clear = 0;
-        if (r0.data != 0) $error(1, "Test failed: expected clear register, got %h at time %0t", r0.data, $time);
+        if (r0.data !== 0) $error(1, "Test failed: expected clear register, got %h at time %0t", r0.data, $time);
 
         // load data from bus
         write_to_register(8'hfe);
@@ -61,7 +61,7 @@ module reg8_tb2;
         // clear register
         #10 clear = 1;
         #10 clear = 0;
-        if (r0.data != 0) $error(1, "Test failed: expected clear register, got %h at time %0t", r0.data, $time);
+        if (r0.data !== 0) $error(1, "Test failed: expected clear register, got %h at time %0t", r0.data, $time);
 
         #10 $finish;
     end
