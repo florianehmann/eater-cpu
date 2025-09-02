@@ -13,14 +13,11 @@ module reg8 (
     assign bus_out = (enable) ? data : 8'bz;
     assign data_out = data;
 
-    always @(posedge clk) begin
-        if (load)
-            data <= bus;
-    end
-
-    always @(*) begin
+    always @(posedge clk or posedge clear) begin
         if (clear)
-            data = 0;
+            data <= 0;
+        else
+            if (load)
+                data <= bus;
     end
-
 endmodule

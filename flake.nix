@@ -20,6 +20,7 @@
             buildInputs = with pkgs; [
               iverilog
               gtkwave
+              logisim
             ] ++ libs;
 
             shellHook = ''
