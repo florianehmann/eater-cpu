@@ -1,6 +1,6 @@
 `timescale 1ns/1ns
 
-module reg8_tb2;
+module reg8_tb;
 
     reg load, enable, clk, clear;
     reg bus_override;
@@ -35,7 +35,7 @@ module reg8_tb2;
 
     initial begin
         $dumpfile("reg8_tb.vcd");
-        $dumpvars(0, reg8_tb2);
+        $dumpvars(0, reg8_tb);
 
         bus_override = 0;
         clk = 0;
