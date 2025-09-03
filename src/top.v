@@ -86,7 +86,7 @@ module top;
     reg8 out (
         .clk(clk),
         .load(control_word[CW.OUTPUT_IN]),
-        .enable(0),
+        .enable(1'b0),
         .clear(clear),
         .bus(bus)
     );
@@ -99,7 +99,8 @@ module top;
         clk_ = 0;
         clear = 1; #1 clear = 0;
 
-        #500 $finish;
+        while (1)
+            #1 if (control_word[CW.HALT] > 0) #10 $finish;
     end
 
     always #5 clk_ = ~clk_;
