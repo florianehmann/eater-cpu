@@ -1,5 +1,5 @@
 sim:
-	iverilog -o sim.vvp src/*.v testbenches/ram_tb.v
+	iverilog -o sim.vvp src/*.v testbenches/
 	vvp sim.vvp
 
 clean:

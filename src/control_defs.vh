@@ -21,4 +21,16 @@ module CW;
     parameter HALT              = 15;
 endmodule
 
+module OPCODE;
+    parameter NOP = 4'd0;
+    parameter LDA = 4'd1;
+    parameter ADD = 4'd2;
+    parameter SUB = 4'd3;
+    parameter STA = 4'd4;
+    parameter LDI = 4'd5;
+    parameter JMP = 4'd6;
+    parameter OUT = 4'd7;
+    parameter HLT = 4'd8;
+endmodule
+
 `endif
