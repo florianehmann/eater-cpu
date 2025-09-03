@@ -44,22 +44,22 @@ module top;
         .bus(bus)
     );
 
-    initial begin
-        $dumpfile("counter.vcd");
-        $dumpvars(0, top);
+    //initial begin
+    //    $dumpfile("counter.vcd");
+    //    $dumpvars(0, top);
 
-        clk = 0;
-        control_word = 16'b0;
-        clear = 1;
-        #1 clear = 0;
+    //    clk = 0;
+    //    control_word = 16'b0;
+    //    clear = 1;
+    //    #1 clear = 0;
 
-        b.data = 8'b1;
-        control_word |= (1 << CW.SUM_OUT) | (1 << CW.A_IN);
+    //    b.data = 8'b1;
+    //    control_word |= (1 << CW.SUM_OUT) | (1 << CW.A_IN);
 
-        #5000 control_word |= (1 << CW.SUBTRACT);
+    //    #5000 control_word |= (1 << CW.SUBTRACT);
 
-        #5000 $finish;
-    end
+    //    #5000 $finish;
+    //end
 
     always #5 clk = ~clk;
 
