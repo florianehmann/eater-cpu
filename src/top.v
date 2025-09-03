@@ -5,12 +5,20 @@
 module top;
 
     reg clk;
+    reg clk_;
     reg clear;
     wire [7:0] bus;
     wire [7:0] data_a;
     wire [7:0] data_b;
     wire [1:0] flags;
     wire [15:0] control_word;
+
+    always @(*) begin
+        if (control_word[CW.HALT] === 1)
+            clk = 0;
+        else
+            clk = clk_;
+    end
 
     reg8 a (
         .clk(clk),
@@ -65,16 +73,34 @@ module top;
         .control_word_out(control_word)
     );
 
+    program_counter program_counter (
+        .clk(clk),
+        .clear(clear),
+        .counter_enable(control_word[CW.COUNTER_ENABLE]),
+        .counter_out(control_word[CW.COUNTER_OUT]),
+        .jump(control_word[CW.JUMP]),
+        .bus_in(bus),
+        .bus_out(bus)
+    );
+
+    reg8 out (
+        .clk(clk),
+        .load(control_word[CW.OUTPUT_IN]),
+        .enable(0),
+        .clear(clear),
+        .bus(bus)
+    );
+
     initial begin
         $dumpfile("top.vcd");
         $dumpvars(0, top);
-        $readmemh("testbenches/mem_tb.hex", ram.ram);
+        $readmemh("programs/hello_world.hex", ram.ram);
 
-        clk = 0;
+        clk_ = 0;
         clear = 1; #1 clear = 0;
 
-        #50 $finish;
+        #500 $finish;
     end
 
-    always #5 clk = ~clk;
+    always #5 clk_ = ~clk_;
 endmodule
