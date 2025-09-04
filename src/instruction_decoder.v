@@ -93,6 +93,18 @@ module instruction_decoder (
                         3'd2: control_word = (1 << CW.INSTRUCTION_OUT) | (1 << CW.JUMP);
                     endcase
                 end
+                OPCODE.JC: begin
+                    if (flag_register[1] === 1'b1) begin
+                        case (step)
+                            3'd2: control_word = (1 << CW.INSTRUCTION_OUT) | (1 << CW.JUMP);
+                        endcase
+                    end
+                end
+                OPCODE.JZ:
+                    if (flag_register[0] === 1'b1)
+                        case (step)
+                            3'd2: control_word = (1 << CW.INSTRUCTION_OUT) | (1 << CW.JUMP);
+                        endcase
                 OPCODE.OUT: begin
                     case (step)
                         3'd2: control_word = (1 << CW.A_OUT) | (1 << CW.OUTPUT_IN);

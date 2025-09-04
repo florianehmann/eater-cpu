@@ -1,0 +1,17 @@
+// jump test
+63 //  0:  jmp  3
+00 //  1:  hlt
+00
+1f //  3:  lda 15
+3f //  4:  sub 15
+88 //  5:  jz   8
+f0 //  6:  hlt
+00
+1e //  8:  lda 14
+2e //  9:  add 14
+7d // 10:  jc  13
+f0 // 11:  hlt
+00
+e0 // 13:  out
+ff // 14:  doubles as variable and halt instruction
+15

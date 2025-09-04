@@ -29,8 +29,10 @@ module OPCODE;
     parameter STA = 4'd4;
     parameter LDI = 4'd5;
     parameter JMP = 4'd6;
-    parameter OUT = 4'd7;
-    parameter HLT = 4'd8;
+    parameter JC  = 4'd7;
+    parameter JZ  = 4'd8;
+    parameter OUT = 4'd14;
+    parameter HLT = 4'd15;
 endmodule
 
 `endif
