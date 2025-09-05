@@ -1,4 +1,4 @@
-; hello_world.asm
+; hello_world.s
 .segment "CODE"
 
 start:
@@ -7,4 +7,4 @@ start:
     hlt                  ; halt execution
 
 .org $0E
-data: .byte $AB, $FE     ; label on the same line should be possible
+data: .byte $FE, $AB     ; label on the same line should be possible

@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.121 (w)1999-2024 BSI
-[*] Thu Sep  4 17:11:27 2025
+[*] Fri Sep  5 18:28:41 2025
 [*]
 [dumpfile] "/home/florian/workspace/eater-cpu/top.vcd"
-[dumpfile_mtime] "Thu Sep  4 17:08:47 2025"
+[dumpfile_mtime] "Fri Sep  5 18:26:33 2025"
 [dumpfile_size] 5833
 [savefile] "/home/florian/workspace/eater-cpu/Execution Analysis.gtkw"
 [timestart] 0
 [size] 1183 634
-[pos] -1217 341
-*-15.165317 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] 3 380
+*-15.165317 128700 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [sst_width] 209
 [signals_width] 230
@@ -31,7 +31,8 @@ top.data_b[7:0]
 top.flags[1:0]
 @22
 top.instruction_decoder.instruction_register[7:0]
-@23
 top.instruction_decoder.opcode[3:0]
+@23
+top.out.data_out[7:0]
 [pattern_trace] 1
 [pattern_trace] 0

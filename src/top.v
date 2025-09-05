@@ -94,7 +94,7 @@ module top;
     initial begin
         $dumpfile("top.vcd");
         $dumpvars(0, top);
-        $readmemh("programs/jump_test.hex", ram.ram);
+        $readmemh("programs/hello_world.hex", ram.ram);
 
         clk_ = 0;
         clear = 1; #1 clear = 0;
